@@ -1,6 +1,24 @@
-# Any image to PPM
+# Any image to PNM
 
-Little tool to convert any image (JPEG, PNG, BMP, PSD, TGA, GIF, HDR, PIC, PNM) image to PPM. I made this project to practice my C skills and to learn how images works.
+Little tool to convert any image (JPEG, PNG, BMP, PSD, TGA, GIF, HDR, PIC, PNM) image to PNM. I made this project to practice my C skills and to learn how images works.
+
+## To do
+
+- [ ] Custom image input support
+    - [ ] JPEG
+    - [ ] PNG
+    - [ ] BMP
+    - [ ] PSD
+    - [ ] TGA
+    - [ ] GIF
+    - [ ] HDR
+    - [ ] PIC
+    - [ ] PNM
+
+- [ ] Custom PNM output support
+    - [ ] PBM
+    - [ ] PGM
+    - [x] PPM
 
 ## Quick start
 
