@@ -31,25 +31,25 @@ $ ./build.sh
 
 # run
 $ cd build
-$ ./img2ppm <args>
+$ ./img2pnm <args>
 ```
 
 ## How to use
 
 Print usage *(exits with code 0)*
 ```console
-$ ./img2ppm -h
-Usage: build/img2ppm <input image> [-o[utput] output path] [-h[elp]]
+$ ./img2pnm -h
+Usage: build/img2pnm <input image> [-o[utput] output path] [-h[elp]]
 ```
 
 ### Examples
 
 Convert `input.png` to `input.png.ppm`
 ```console
-$ ./img2ppm input.png
+$ ./img2pnm input.png
 ```
 
 Convert `input.jpg` to `output.ppm`
 ```console
-$ ./img2ppm input.jpg -o output.ppm
+$ ./img2pnm input.jpg -o output.ppm
 ```
