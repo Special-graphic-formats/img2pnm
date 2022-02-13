@@ -6,14 +6,15 @@
 #include "stb_image.h"
 
 /**
- * @brief Print the program usage and exit with code 1
+ * @brief Print the program usage and exit with provided code
  *
  * @param program_name The program name
+ * @param code The exit code
  */
-void print_usage_and_exit(const char *program_name)
+void print_usage_and_exit(const char *program_name, int code)
 {
-    fprintf(stderr, "Usage: %s <input image> [-o output path]\n", program_name);
-    exit(1);
+    fprintf(stderr, "Usage: %s <input image> [-o[utput] output path] [-h[elp]]\n", program_name);
+    exit(code);
 }
 
 int main(int argc, char **argv)
@@ -36,7 +37,7 @@ int main(int argc, char **argv)
                 if (output_file_path != NULL)
                 {
                     fprintf(stderr, "ERROR: you can only provide one output file path\n");
-                    print_usage_and_exit(argv[0]);
+                    print_usage_and_exit(argv[0], EXIT_FAILURE);
                 }
 
                 // check if a parameter was provided
@@ -48,14 +49,18 @@ int main(int argc, char **argv)
                 else
                 {
                     fprintf(stderr, "ERROR: no path provided after `%s`\n", opt);
-                    print_usage_and_exit(argv[0]);
+                    print_usage_and_exit(argv[0], EXIT_FAILURE);
                 }
+            }
+            if (strcmp(opt + 1, "h") == 0 || strcmp(opt + 1, "help") == 0)
+            {
+                print_usage_and_exit(argv[0], EXIT_SUCCESS);
             }
             // unknown option
             else
             {
                 fprintf(stderr, "ERROR: unrecognized option `%s`\n", opt);
-                print_usage_and_exit(argv[0]);
+                print_usage_and_exit(argv[0], EXIT_FAILURE);
             }
         }
         else
@@ -64,7 +69,7 @@ int main(int argc, char **argv)
             if (input_file_path != NULL)
             {
                 fprintf(stderr, "ERROR: you can only provide one input file\n");
-                print_usage_and_exit(argv[0]);
+                print_usage_and_exit(argv[0], EXIT_FAILURE);
             }
 
             input_file_path = opt;
@@ -75,7 +80,7 @@ int main(int argc, char **argv)
     if (input_file_path == NULL)
     {
         fprintf(stderr, "ERROR: no input file provided\n");
-        print_usage_and_exit(argv[0]);
+        print_usage_and_exit(argv[0], EXIT_FAILURE);
     }
 
     // auto set output file path if it the user didn't provide it
