@@ -26,6 +26,9 @@ Little tool to convert any image (JPEG, PNG, BMP, PSD, TGA, GIF, HDR, PIC, PNM) 
 # build
 $ make
 
+# build using shell script
+$ ./build.sh
+
 # run
 $ cd build
 $ ./img2ppm <args>
